@@ -53,11 +53,8 @@ const updateProductDetails = asyncHandler(async (req, res) => {
     const product = await Product.findByIdAndUpdate(
       req.params.id,
       { ...req.fields },
-      { new: true }
-    );
-
+      { new: true });
     await product.save();
-
     res.json(product);
   } catch (error) {
     console.error(error);
